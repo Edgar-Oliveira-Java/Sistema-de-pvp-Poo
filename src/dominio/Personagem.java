@@ -3,42 +3,41 @@ package dominio;
 public class Personagem {
     public String nome;
     public int vida;
-    Arma item = new Arma();
-    public void playerConstructor(String name, int life, String type, int damage, int bks){
+    Item item = new Item();
+
+    public void playerConstructor(String name, int life){
         nome = name;
         vida = life;
-        item.tipo = type;
-        item.dano = damage;
-        item.resiste = bks;
     }
 
-    public void atacaBoss(Inimigo alvo){
-        if(item.resiste <= 0){
-            System.out.println(item.tipo + "Quebrou");
+
+    public void atacaBoss(Inimigo alvo, Item gadget){
+        if(gadget.resiste <= 0){
+            System.out.println("Item quebrado!");
             return;
         }
         if(alvo.vida <= 0){
-            System.out.println("O inimigo está morto");
-            return;
+            System.out.println("O Inimigo foi morto!");
+        }else {
+            alvo.vida -= gadget.dano;
+            gadget.resiste -= 2;
+            System.out.println(alvo.nome+" Foi atacado");
+            System.out.println("Tomou "+gadget.dano+" de dano!");
         }
-        System.out.println(nome + " Atacou: " + alvo.nome);
-        alvo.vida -= item.dano;
-        System.out.println("Vida do alvo: "+alvo.vida);
-        item.resiste -= 5;
     }
 
-    public void atacarPlayer(Personagem alvo){
-        if(item.resiste <= 0){
-            System.out.println(item.tipo + "Quebrou");
+    public void atacarPlayer(Personagem alvo, Item gadget){
+        if(gadget.resiste <= 0){
+            System.out.println("Item quebrado!");
             return;
         }
         if(alvo.vida <= 0){
-            System.out.println("O inimigo está morto");
-            return;
+            System.out.println("O Inimigo foi morto!");
+        }else {
+            alvo.vida -= gadget.dano;
+            gadget.resiste -= 2;
+            System.out.println(alvo.nome+" Foi atacado");
+            System.out.println("Tomou "+gadget.dano+" de dano!");
         }
-        System.out.println(nome + " Atacou: " + alvo.nome);
-        alvo.vida -= item.dano;
-        System.out.println("Vida do alvo: "+alvo.vida);
-        item.resiste -= 5;
     }
 }
