@@ -6,17 +6,14 @@ import dominio.Personagem;
 
 public class Hub {
     public static void main(String[] args) {
-        Personagem guts = new Personagem();
-        Personagem miyamoto = new Personagem();
-        Inimigo mangog = new Inimigo();
+        Personagem guts = new Personagem("Guts", 230);
+        Personagem miyamoto = new Personagem("Miyamoto", 150);
+        Inimigo mangog = new Inimigo("Mangog", 550);
         Item[] inventario = new Item[3];
         inventario[0] = new Item();
         inventario[1] = new Item();
         inventario[2] = new Item();
 
-        guts.playerConstructor("Guts", 230);
-        miyamoto.playerConstructor("Miyamoto", 150);
-        mangog.bossConstructor("Mango", 550);
 
         inventario[0].itemInventory("Espada Das Viuvas", 85, 25);
         inventario[1].itemInventory("Porrete das Nações", 57, 20);

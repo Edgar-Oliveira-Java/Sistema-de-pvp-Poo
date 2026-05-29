@@ -1,13 +1,13 @@
 package dominio;
 
 public class Personagem {
-    public String nome;
-    public int vida;
+    private String nome;
+    private int vida;
     Item item = new Item();
 
-    public void playerConstructor(String name, int life){
-        nome = name;
-        vida = life;
+    public Personagem(String name, int life){
+        this.nome = name;
+        this.vida = life;
     }
 
 
